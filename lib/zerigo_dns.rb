@@ -83,31 +83,43 @@ module Zerigo
     class Host < Base
       
       # Find by host name
-      def self.find_by_hostname(zone, hostname)
-        hosts = find(:all, :params=> { :zone_id => zone }) 
-        host = nil
-        hosts.each do |h|
-          if h.hostname == hostname
-            host = h
-            break;
-          end
-        end      
-        host
+      # delete as soon as not needed
+      # def self.find_by_hostname(zone, hostname)
+      #   hosts = find(:all, :params=> { :zone_id => zone }) 
+      #   host = nil
+      #   hosts.each do |h|
+      #     if h.hostname == hostname
+      #       host = h
+      #       break;
+      #     end
+      #   end      
+      #   host
+      # end
+      
+      def self.find_by_hostname how_many, zone, hostname
+        fqdn = [hostname, zone.domain].select(&:present?).join('.')
+        find(how_many, params: {fqdn: fqdn, zone_id: zone.id})
+      end
+      
+      ## Convienence methods
+      
+      def self.find_all_by_hostname zone, hostname
+        find_by_hostname(:all, zone, hostname)
+      end
+      
+      def self.find_first_by_hostname zone, hostname
+        find_by_hostname(:all, zone, hostname).try(:first)
       end
       
       # Update or Create Host for a zone
+      # This method will only update the _first_ record. 
       def self.update_or_create(zone, hostname, type, ttl, data)
-        host = find_by_hostname(zone, hostname)
+        host = find_first_by_hostname(zone, hostname)
         if host
-          # update
-          host.host_type  = type
-          host.data       = data
-          host.ttl        = ttl
-          host.save
+          host.update_record(type,ttl,data)
         else
-          # create
           host = create(
-            :zone_id    => zone, 
+            :zone_id    => zone.id, 
             :hostname   => hostname,
             :host_type  => type,
             :data       => data,
@@ -117,6 +129,29 @@ module Zerigo
         host
       end
       
+      
+      # Will update _all_ records of the same hostname on the same zone.
+      def self.update_all_or_create(zone, hostname, type, ttl, data)
+        hosts = find_all_by_hostname(zone, hostname)
+        if hosts
+          hosts.each {|host| host.update_record(type,ttl,data)}
+        else
+          [create(
+            :zone_id    => zone.id, 
+            :hostname   => hostname,
+            :host_type  => type,
+            :data       => data,
+            :ttl        => ttl
+          )]
+        end
+      end
+      
+      def update_record type, ttl, data
+        self.host_type  = type
+        self.data       = data
+        self.ttl        = ttl
+        save
+      end
     end
 
   end
