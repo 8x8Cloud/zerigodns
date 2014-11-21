@@ -96,7 +96,7 @@ module Zerigo
       #   host
       # end
       
-      def self.find_by_hostname how_many, zone, hostname
+      def self.find_by_zone_and_hostname how_many, zone, hostname
         fqdn = [hostname, zone.domain].select(&:present?).join('.')
         find(how_many, params: {fqdn: fqdn, zone_id: zone.id})
       end
@@ -104,11 +104,15 @@ module Zerigo
       ## Convienence methods
       
       def self.find_all_by_hostname zone, hostname
-        find_by_hostname(:all, zone, hostname)
+        find_by_zone_and_hostname(:all, zone, hostname)
       end
       
       def self.find_first_by_hostname zone, hostname
-        find_by_hostname(:all, zone, hostname).try(:first)
+        find_by_zone_and_hostname(:all, zone, hostname).try(:first)
+      end
+      
+      def self.find_by_hostname *args
+        find_first_by_hostname(*args)
       end
       
       # Update or Create Host for a zone
