@@ -20,7 +20,7 @@ describe 'Host Management' do
   
   it 'finds a single host by hostname' do
     @host = Zerigo::DNS::Host.create(zone_id: @domain.id, hostname: 'www', host_type: 'A', ttl: 86400, data: '10.10.10.10')
-    expect(Zerigo::DNS::Host.find_first_by_hostname(@domain, 'www').count).to be > 0
+    expect(Zerigo::DNS::Host.find_first_by_hostname(@domain, 'www')).to_not be_nil
     @host.destroy
   end
   
