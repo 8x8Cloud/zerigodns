@@ -13,11 +13,9 @@ class Zerigo::DNS::Zone < Zerigo::DNS::Base
     # @param [String, #read] domain name of domain to create
     # @return [Zone] the zone found or created.
     def find_or_create(domain)
-      zone = find_by_domain(domain)
-      unless zone
-        zone = create(:domain=> domain, :ns_type=>'pri_sec')
-      end  
-      zone
+      find_by_domain(domain)
+    rescue ActiveResource::ResourceNotFound
+      create(:domain=> domain, :ns_type=>'pri_sec')
     end
   end
 end

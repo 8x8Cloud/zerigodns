@@ -25,10 +25,9 @@ Gem::Specification.new do |s|
   s.summary = "Zerigo DNS Gem"
   
   s.add_runtime_dependency %q<zerigo_dns>, ">= 0"
-  s.add_development_dependency %q<thoughtbot-shoulda>, ">= 0"
+  s.add_development_dependency 'rspec', '~> 2.99'
   s.add_development_dependency %q<rake>, ">= 0"
   s.add_dependency %q<activeresource>, "~> 3.2.0"
   s.add_dependency 'yard', '~> 0.8.7.6'
-
-
+  s.add_development_dependency 'simplecov', '~> 0.9.1'
 end
