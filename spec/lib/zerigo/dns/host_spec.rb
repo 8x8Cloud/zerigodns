@@ -34,10 +34,4 @@ describe Zerigo::DNS::Host do
       end
     end
   end
-  it 'should find by zone and host' do
-    jackhq = double('Zerigo::DNS::Host')
-    allow(jackhq).to receive(:hostname).and_return('www')
-    allow(described_class).to receive(:find).and_return([jackhq])
-    described_class.find_first_by_hostname(@domain, 'www').hostname == 'www'
-  end
 end
