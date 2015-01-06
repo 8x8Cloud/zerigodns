@@ -10,6 +10,10 @@ describe 'Zone Management' do
     FeatureSpec.cleanup
   end
   
+  it 'finds a zone' do
+    expect{Zerigo::DNS::Zone.find_by_domain(@domain.domain)}.to_not raise_error
+  end
+  
   it 'creates a zone' do
     domain = Zerigo::DNS::Zone.create(domain: 'zerigo-gem-testing-2.com', ns_type: 'pri_sec')
     expect(domain.domain).to eq 'zerigo-gem-testing-2.com'
