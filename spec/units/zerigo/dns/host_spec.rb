@@ -6,8 +6,8 @@ describe Zerigo::DNS::Host do
     @domain = double('Zerigo::DNS::Domain')
     allow(@domain).to receive(:id).and_return(1)
     allow(@domain).to receive(:domain).and_return('domain.com')
-    
   end
+  
   describe '#update_or_create' do
     context 'given a non-existent host' do
       it 'creates a host record' do

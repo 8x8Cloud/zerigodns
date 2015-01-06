@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency %q<rake>, ">= 0"
   s.add_dependency %q<activeresource>, "~> 3.2.0"
   s.add_dependency 'yard', '~> 0.8.7.6'
+  s.add_development_dependency 'webmock'
 end
