@@ -4,7 +4,8 @@ class Zerigo::DNS::Zone < Zerigo::DNS::Base
   class <<self
     # Find zone by domain name
     # @param [String, #read] domain the domain to retrieve
-    # @return [Zone] the domain retrieved.  nil if no domain
+    # @raise ActiveResource::ResourceNotFound if the domain is not present.
+    # @return [Zone] the domain retrieved.
     def find_by_domain(domain)
       find(domain)
     end
