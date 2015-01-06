@@ -1,17 +1,13 @@
-require_relative 'feature_spec_helper'
+require 'spec_helper'
 
 describe 'Zone Management' do
   before :all do
-    FeatureSpec.init or skip
     @domain = FeatureSpec.domain
-  end
-  
-  after :all do
-    FeatureSpec.cleanup
+    skip unless @domain
   end
   
   it 'finds a zone' do
-    expect{Zerigo::DNS::Zone.find_by_domain(@domain.domain)}.to_not raise_error
+    expect{Zerigo::DNS::Zone.find_by_domain('zerigo-gem-testing.com')}.to_not raise_error
   end
   
   it 'creates a zone' do
