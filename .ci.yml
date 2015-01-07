@@ -13,5 +13,3 @@ before_install:
   - gem --version
 script:
   - bundle exec rake
-after_success:
-  - .ci_scripts/move-tag.sh
