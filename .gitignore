@@ -14,7 +14,10 @@ tmtags
 *.swp
 
 ## PROJECT::GENERAL
+spec/config/user.yml
 coverage
+doc
+.yardoc
 rdoc
 pkg
 
