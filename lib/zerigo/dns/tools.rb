@@ -12,6 +12,12 @@ class Zerigo::DNS::Tools < Zerigo::DNS::Base
     def public_ipv6
       get :public_ipv6
     end
+    
+    # Fetch the current public IP address (either ipv4 or ipv6)
+    # @return [String] Current public ip address (ipv4 or ipv6)
+    def public_ip
+      get :public_ip
+    end
   end
 
 end
