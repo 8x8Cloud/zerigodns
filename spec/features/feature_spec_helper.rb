@@ -21,7 +21,7 @@ class FeatureSpec
   end
 end
 
-Rspec.configure do |c|
+RSpec.configure do |c|
   c.before :suite do
     FeatureSpec.init
   end
