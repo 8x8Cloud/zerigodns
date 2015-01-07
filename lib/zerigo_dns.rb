@@ -4,3 +4,5 @@
 require 'zerigo/dns/host'
 require 'zerigo/dns/zone'
 require 'zerigo/dns/zone_template'
+require 'zerigo/dns/host_template'
+require 'zerigo/dns/tools'

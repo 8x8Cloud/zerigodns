@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'Host Management' do
   before :all do
+    skip unless FeatureSpec.should_run?
     @domain = FeatureSpec.domain
-    skip unless @domain
   end
   
   it 'creates a host record' do

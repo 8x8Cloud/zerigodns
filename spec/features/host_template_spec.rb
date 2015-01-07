@@ -1,8 +1,8 @@
 require 'spec_helper'
 describe 'Host Template Management' do
   before :all do
+    skip unless FeatureSpec.should_run?
     @domain = FeatureSpec.domain
-    skip unless @domain
     @templates = []
   end
   
