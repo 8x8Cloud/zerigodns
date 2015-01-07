@@ -1,5 +1,3 @@
-require_relative 'base'
-
 class Zerigo::DNS::Zone < Zerigo::DNS::Base
   class <<self
     # Find zone by domain name

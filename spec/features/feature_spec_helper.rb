@@ -15,6 +15,10 @@ class FeatureSpec
       nil
     end
     
+    def should_run?
+      !!domain
+    end
+    
     def cleanup
       @domain.destroy
     end
