@@ -15,12 +15,7 @@ Gem::Specification.new do |s|
     "LICENSE"
   ]
 
-  s.files = [
-    "LICENSE",
-    "Rakefile",
-    "lib/activeresource-ext.rb",
-    "lib/zerigo_dns.rb"
-  ]
+  s.files = %w(LICENSE Rakefile) + Dir.glob('lib/**/*.rb')
 
   s.homepage = "http://github.com/8x8Cloud/zerigo_dns"
   s.require_paths = %w(lib)
