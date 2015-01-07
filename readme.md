@@ -1,16 +1,14 @@
 # Zerigo DNS GEM
 
-Simple Gem that wraps around an active resource for the Zerigo DNS API
-
-[![Build Status](https://secure.travis-ci.org/twilson63/zerigo_dns.png)](http://travis-ci.org/twilson63/zerigo_dns)
+Simple ActiveResource wrapper around the Zerigo DNS api.
 
 ## Install
 
-    gem install zerigo_dns
+    gem install zerigodns
     
 ## How to use
 
-    require 'zerigo_dns'
+    require 'zerigodns'
     
     Zerigo::DNS::Base.user = 'you@email.com'
     Zerigo::DNS::Base.api_key = 'yourtokengoeshere'
@@ -18,8 +16,8 @@ Simple Gem that wraps around an active resource for the Zerigo DNS API
     # Find or create domain
     my_zone = Zerigo::DNS::Zone.find_or_create('happyplace.com')
     
-    # update or create host
-    my_host = Zerigo::DNS::Host.update_or_create(my_zone.id, 'www', 'A', 86400, '10.10.10.10')
+    # update or create host record
+    my_host = Zerigo::DNS::Host.update_or_create(my_zone, 'www', 'A', 86400, '10.10.10.10')
     
 Thats it, you should now have a host and url www.happyplace.com pointing to 10.10.10.10
 
@@ -50,21 +48,31 @@ Thank you to Anthony Scalisi
 
 ## Support
 
-    [https://github.com/twilson63/zerigo_dns](https://github.com/twilson63/zerigo_dns)
+    [https://github.com/8x8Cloud/zerigo_dns](https://github.com/8x8Cloud/zerigo_dns)
     
     create an issue
-
-## Credit goes to Zerigo DNS
-
-    Copyright 2009 Zerigo, Inc.  See MIT-LICENSE for license information.
-    Visit http://www.zerigo.com/docs/managed-dns for updates and documentation.
-
-    I just put there sample code into a gem library for deployment ease. And chef
-    integration.
-
-    If you have any questions contact zerigo_dns_gem@jackhq.com
-
 
 ## Copyright
 
     Copyright 2009 Zerigo, Inc.  See MIT-LICENSE for license information.
+
+    Copyright (c) 2009 Tom Wilson
+
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
