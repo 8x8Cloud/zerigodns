@@ -1,5 +1,3 @@
-require 'activeresource-ext'
-
 module Zerigo
   module DNS
     class Base < ActiveResource::Base

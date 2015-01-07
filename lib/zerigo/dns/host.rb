@@ -1,5 +1,3 @@
-require_relative 'base'
-
 class Zerigo::DNS::Host < Zerigo::DNS::Base
   class << self
     

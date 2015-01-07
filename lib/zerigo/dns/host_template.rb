@@ -1,6 +1,3 @@
-require_relative 'base'
-require_relative 'zone_template'
-
 class Zerigo::DNS::HostTemplate < Zerigo::DNS::Base
   
   # Fetches the zone template to which the host template belongs.

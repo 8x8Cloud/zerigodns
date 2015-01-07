@@ -1,6 +1,3 @@
-require_relative 'base'
-require_relative 'zone'
-require_relative 'host_template'
 class Zerigo::DNS::ZoneTemplate < Zerigo::DNS::Base
   
   # Create a zone using the zone template
