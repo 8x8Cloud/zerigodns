@@ -10,11 +10,12 @@ describe 'Zone Management' do
     expect{Zerigo::DNS::Zone.find_by_domain('zerigo-gem-testing.com')}.to_not raise_error
   end
   
-  it 'creates a zone' do
+  it 'creates and destroys a zone' do
     domain = Zerigo::DNS::Zone.create(domain: 'zerigo-gem-testing-2.com', ns_type: 'pri_sec')
     expect(domain.domain).to eq 'zerigo-gem-testing-2.com'
     expect{Zerigo::DNS::Zone.find('zerigo-gem-testing-2.com')}.to_not raise_error
     Zerigo::DNS::Zone.find('zerigo-gem-testing-2.com').destroy
+    expect{Zerigo::DNS::Zone.find('zerigo-gem-testing-2.com')}.to raise_error
   end
   
   it 'updates a zone' do

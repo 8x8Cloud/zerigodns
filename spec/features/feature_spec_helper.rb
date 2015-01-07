@@ -1,6 +1,13 @@
+#
+# Extra support methods for feature tests.
+#
 class FeatureSpec
   class <<self
+    # A domain which can be used throughout the test suite.
     attr_reader :domain
+    
+    # Initializes the integration tests
+    # @return [Boolean] true if successful, nil otherwise.
     def init
       return true if @domain
       @user = YAML.load(File.read('spec/config/user.yml'))
@@ -13,10 +20,13 @@ class FeatureSpec
       nil
     end
     
+    # This should be called in a before :all hook on any feature spec.
+    # @return [Boolean] true if the feature spec should run, false if not.
     def should_run?
       !!domain
     end
     
+    # Clean up resources from the feature test.
     def cleanup
       @domain.destroy
     end
