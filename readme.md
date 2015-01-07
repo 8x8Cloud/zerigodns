@@ -1,6 +1,8 @@
 # Zerigo DNS GEM
 
-Simple ActiveResource wrapper around the Zerigo DNS api.
+Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
+
+
 
 ## Install
 
