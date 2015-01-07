@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zerigo_dns (1.0.0)
+    zerigodns (1.0.0)
       activeresource (~> 3.2.0)
       yard (~> 0.8.7.6)
       zerigo_dns
@@ -38,6 +38,8 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     yard (0.8.7.6)
+    zerigo_dns (1.5.6)
+      activeresource (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -46,4 +48,4 @@ DEPENDENCIES
   rake
   rspec (~> 2.99)
   simplecov (~> 0.9.1)
-  zerigo_dns!
+  zerigodns!
