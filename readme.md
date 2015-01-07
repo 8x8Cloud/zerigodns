@@ -50,9 +50,9 @@ Thank you to Anthony Scalisi
 
 ## Support
 
-    [https://github.com/8x8Cloud/zerigo_dns](https://github.com/8x8Cloud/zerigo_dns)
+[https://github.com/8x8Cloud/zerigo_dns](https://github.com/8x8Cloud/zerigo_dns)
     
-    create an issue
+Create an issue
 
 ## Copyright
 
