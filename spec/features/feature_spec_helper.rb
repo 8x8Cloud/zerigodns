@@ -1,5 +1,3 @@
-require 'spec_helper'
-require 'zerigo_dns'
 class FeatureSpec
   class <<self
     attr_reader :domain
