@@ -54,7 +54,7 @@ Thank you to Anthony Scalisi
 
 ## Copyright
 
-    Copyright 2009 Zerigo, Inc.  See MIT-LICENSE for license information.
+    Copyright 2009 Zerigo, Inc.  See LICENSE for license information.
 
     Copyright (c) 2009 Tom Wilson
 
