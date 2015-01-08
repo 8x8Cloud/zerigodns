@@ -5,5 +5,5 @@ require 'simplecov'
 require 'logger'
 require File.expand_path(File.dirname(__FILE__) + "/../lib/zerigodns")
 require_relative 'features/feature_spec_helper'
-
+# ActiveResource::Base.logger = Logger.new(STDERR) # for test logging
 

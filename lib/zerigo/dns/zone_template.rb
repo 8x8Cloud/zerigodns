@@ -1,5 +1,17 @@
 class Zerigo::DNS::ZoneTemplate < Zerigo::DNS::Base
   
+  # Get count of zone templates
+  # @return [Fixnum] the count of zone templates
+  def self.count
+    get(:count).to_i
+  end
+  
+  # Get count of host templates
+  # @return [Fixnum] the count of host templates for this zone template
+  def count_host_templates
+    get('host_templates/count').to_i
+  end
+  
   # Create a zone using the zone template
   # @param [Hash, #read] attrs Attributes of the zone to be created
   # @option attrs domain [String, #read] The domain name
@@ -13,6 +25,11 @@ class Zerigo::DNS::ZoneTemplate < Zerigo::DNS::Base
     Zerigo::DNS::Zone.create({follow_template: 'follow', zone_template_id: id}.merge(attrs))
   end
   
+  # List all host templates of this zone template
+  # @return [Array] An array of host templates
+  def host_templates
+    @host_templates ||= Zerigo::DNS::HostTemplate.find(:all, params: {zone_template_id: id})
+  end
   
   # Create a host template for this template
   # @param [Hash, #read] attrs Attributes of the host template to be created

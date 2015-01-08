@@ -23,4 +23,12 @@ describe 'Zone Management' do
     @domain.save
     expect(Zerigo::DNS::Zone.find(@domain.id).default_ttl).to eq 400
   end
+  
+  it 'counts the zones' do
+    expect(Zerigo::DNS::Zone.count).to be_a Fixnum
+  end
+  
+  it 'counts the hosts' do
+    expect(@domain.count_hosts).to be_a Fixnum
+  end
 end
