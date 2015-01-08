@@ -21,7 +21,7 @@ describe Zerigo::DNS::Host do
       described_class.find_first_by_hostname(@domain, 'host')
     end
     
-    it 'takes the firstn element from the resulting array' do
+    it 'takes the first element from the resulting array' do
       allow(described_class).to receive(:find).and_return([1,2,3])
       expect(described_class.find_first_by_hostname(@domain, 'host')).to eq 1
     end
