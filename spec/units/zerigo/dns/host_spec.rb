@@ -58,7 +58,7 @@ describe Zerigo::DNS::Host do
         allow(described_class).to receive(:find).and_return([jackhq])
         expect(described_class).to_not receive(:create)
         
-        described_class.update_or_create(@domain, 'www', 'A', '10.10.10.10', 86499).hostname == 'www'
+        described_class.update_or_create(@domain, 'www', 'A', '10.10.10.10', 86499)
       end
     end
   end
