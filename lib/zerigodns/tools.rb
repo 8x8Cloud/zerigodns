@@ -1,4 +1,4 @@
-class ZerigoDns::Tools < ZerigoDns::Base
+class ZerigoDNS::Tools < ZerigoDNS::Base
   class <<self
     
     # Fetch current public ipv4 address

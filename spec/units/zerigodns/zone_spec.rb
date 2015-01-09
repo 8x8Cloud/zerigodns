@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ZerigoDns::Zone do
+describe ZerigoDNS::Zone do
   
   describe '.count' do
     it 'calls the correct endpoint' do
@@ -27,7 +27,7 @@ describe ZerigoDns::Zone do
     
     context 'given an existing zone' do
       it 'returns the zone' do
-        jackhq = double('ZerigoDns::Zone')
+        jackhq = double('ZerigoDNS::Zone')
         allow(jackhq).to receive(:domain).and_return('example.com')
         
         allow(described_class).to receive(:find).and_return(jackhq)
