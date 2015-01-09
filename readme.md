@@ -13,14 +13,14 @@ Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerig
 ```ruby
 require 'zerigodns'
     
-Zerigo::DNS::Base.user = 'you@email.com'
-Zerigo::DNS::Base.api_key = 'yourtokengoeshere'
+ZerigoDns::Base.user = 'you@email.com'
+ZerigoDns::Base.api_key = 'yourtokengoeshere'
     
 # Find or create domain
-my_zone = Zerigo::DNS::Zone.find_or_create('happyplace.com')
+my_zone = ZerigoDns::Zone.find_or_create('happyplace.com')
     
 # update or create host record
-my_host = Zerigo::DNS::Host.update_or_create(my_zone, 'www', 'A', 86400, '10.10.10.10')
+my_host = ZerigoDns::Host.update_or_create(my_zone, 'www', 'A', 86400, '10.10.10.10')
 ```
 
 Thats it, you should now have a host and url www.happyplace.com pointing to 10.10.10.10

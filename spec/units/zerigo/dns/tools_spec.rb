@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Zerigo::DNS::Tools do
+describe ZerigoDns::Tools do
   describe "#public_ipv4" do
     it 'sends a get request to the correct endpoint' do
       expect(described_class).to receive(:get).with(:public_ipv4)

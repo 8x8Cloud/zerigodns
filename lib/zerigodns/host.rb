@@ -1,4 +1,4 @@
-class Zerigo::DNS::Host < Zerigo::DNS::Base
+class ZerigoDns::Host < ZerigoDns::Base
   class << self
     
     # Find host record(s) by zone and hostname
