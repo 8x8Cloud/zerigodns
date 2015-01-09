@@ -1,10 +1,8 @@
 module Zerigo
   module DNS
-    
     class Base < ActiveResource::Base
       class << self
-        attr_reader :secure 
-        
+        attr_reader :secure
         alias_method :api_key, :password
         alias_method :api_key=, :password=
         def secure=(bool)

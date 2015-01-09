@@ -24,6 +24,8 @@ class Zerigo::DNS::Zone < Zerigo::DNS::Base
     end
   end
   
+  # Get count of all hosts belonging to this zone
+  # @return [Fixnum] Count of all hosts belonging to this zone.
   def count_hosts
     get('hosts/count').to_i
   end
