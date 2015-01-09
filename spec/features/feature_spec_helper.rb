@@ -12,7 +12,7 @@ class FeatureSpec
       return true if @domain
       @user = YAML.load(File.read('spec/config/user.yml'))
       @user.each do |key, val|
-        ZerigoDNS::Base.send("#{key}=", val)
+        ZerigoDNS.config.send("#{key}=", val)
       end
       @domain = ZerigoDNS::Zone.create(domain: 'zerigo-gem-testing.com', ns_type: 'pri_sec')
       true

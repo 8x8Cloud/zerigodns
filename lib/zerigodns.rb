@@ -23,7 +23,7 @@ module ZerigoDNS
     
     # Exposes a block with the +Config+ instance
     #
-    # @yield the config instance
+    # @yield [Config] the config instance
     def configure
       yield config
     end
