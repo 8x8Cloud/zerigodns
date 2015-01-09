@@ -13,8 +13,11 @@ Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerig
 ```ruby
 require 'zerigodns'
     
-ZerigoDNS::Base.user = 'you@email.com'
-ZerigoDNS::Base.api_key = 'yourtokengoeshere'
+ZerigoDNS.configure do |config|
+  config.user = 'you@email.com'
+  config.api_key = 'yourtokengoeshere'
+end
+```
     
 # Find or create domain
 my_zone = ZerigoDNS::Zone.find_or_create('happyplace.com')
