@@ -10,8 +10,6 @@ describe 'Host Template Management' do
     @templates.each {|t| t.destroy rescue nil}
   end
   
-  
-  
   it 'creates a zone template' do
     @template = Zerigo::DNS::ZoneTemplate.create(custom_ns: false, default_ttl: 900, ns_type: 'pri_sec', name: 'gem-test')
     @templates << @template

@@ -6,10 +6,11 @@ describe 'Host Management' do
     @domain = FeatureSpec.domain
   end
   
-  it 'creates a host record' do
+  it 'creates and destroys a host record' do
     @host = Zerigo::DNS::Host.create(zone_id: @domain.id, hostname: 'www', host_type: 'A', ttl: 86400, data: '10.10.10.10')
     expect{Zerigo::DNS::Host.find(@host.id)}.to_not raise_error
     @host.destroy
+    expect{Zerigo::DNS::Host.find(@host.id)}.to raise_error
   end
   
   it 'finds all hosts by hostname' do

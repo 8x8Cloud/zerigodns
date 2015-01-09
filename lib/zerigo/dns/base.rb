@@ -1,23 +1,22 @@
 module Zerigo
   module DNS
     class Base < ActiveResource::Base
+      class << self
+        attr_reader :secure
+        alias_method :api_key, :password
+        alias_method :api_key=, :password=
+        def secure=(bool)
+          @secure=bool
+          self.site = @secure ? 'https://ns.zerigo.com/api/1.1/' : 'http://ns.zerigo.com/api/1.1/'
+        end
+      end
       
-      class << self; attr_reader :secure end
-      @secure=true
       self.site='https://ns.zerigo.com/api/1.1/'
-      self.user = 'test@example.com'
-      self.password = 'ca01ffae311a7854ea366b05cd02bd50'
       self.timeout = 5 # timeout after 5 seconds
       self.format = ActiveResource::Formats::XmlFormat
+      @secure = true
       
-      def self.api_key=(v)
-        self.password = v
-      end
       
-      def self.secure=(bool)
-        @secure=bool
-        self.site = @secure ? 'https://ns.zerigo.com/api/1.1/' : 'http://ns.zerigo.com/api/1.1/'
-      end
       
       # fix load() so that it no longer clobbers @prefix_options
       # also fix bug exposed by reload() where attributes is effectively parsed twice, causing the first line to raise an exception the 2nd time

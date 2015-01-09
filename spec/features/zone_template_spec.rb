@@ -42,4 +42,22 @@ describe 'Zone Template Management' do
     @template.destroy
     expect {Zerigo::DNS::ZoneTemplate.find(@template.id)}.to raise_error
   end
+  
+  it 'counts zone templates' do
+    expect(Zerigo::DNS::ZoneTemplate.count).to be_a Fixnum
+  end
+  
+  it 'counts host templates' do
+    @template = Zerigo::DNS::ZoneTemplate.create(custom_ns: false, default_ttl: 900, ns_type: 'pri_sec', name: 'gem-test-5')
+    @templates << @template
+    expect(@template.count_host_templates).to be_a Fixnum
+  end
+  
+  it 'lists all host templates' do
+    @template = Zerigo::DNS::ZoneTemplate.create(custom_ns: false, default_ttl: 900, ns_type: 'pri_sec', name: 'gem-test-6')
+    @host_template = @template.create_host_template(data: '10.10.10.10', hostname: 'www', host_type: 'A')
+    @templates << @template
+    expect(@template.host_templates).to be_a Array
+    expect(@template.host_templates.count).to eq 1
+  end
 end
