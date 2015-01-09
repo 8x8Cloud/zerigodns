@@ -10,7 +10,7 @@ require 'zerigodns/host_template'
 require 'zerigodns/tools'
 
 module ZerigoDNS
-  mattr_writer :configuration
+  mattr_writer :config
   
   class <<self
     ## Instantiates and memoizes a new +Config+ object
