@@ -1,4 +1,4 @@
-class ZerigoDns::Zone < ZerigoDns::Base
+class ZerigoDNS::Zone < ZerigoDNS::Base
   class <<self
     # Get count of all zones
     # @return [Fixnum] Count of all zones

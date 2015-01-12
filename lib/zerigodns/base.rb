@@ -1,4 +1,4 @@
-module ZerigoDns
+module ZerigoDNS
   class Base < ActiveResource::Base
     class << self
       attr_reader :secure

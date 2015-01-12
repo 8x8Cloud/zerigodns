@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe ZerigoDns::Host do
+describe ZerigoDNS::Host do
   
   before :each do
-    @domain = double('ZerigoDns::Domain')
+    @domain = double('ZerigoDNS::Domain')
     allow(@domain).to receive(:id).and_return(1)
     allow(@domain).to receive(:domain).and_return('domain.com')
   end
@@ -29,7 +29,7 @@ describe ZerigoDns::Host do
   
   describe '#update_record' do
     it 'updates the correct attributes' do
-      @host = ZerigoDns::Host.new
+      @host = ZerigoDNS::Host.new
       expect(@host).to receive(:save).and_return true
       @host.update_record('A', 900, '10.0.0.1')
       expect([@host.host_type, @host.data, @host.ttl]).to eq ['A', '10.0.0.1', 900]
@@ -47,7 +47,7 @@ describe ZerigoDns::Host do
     
     context 'given an existing host record' do
       it 'updates the host record' do
-        jackhq = double('ZerigoDns::Host')
+        jackhq = double('ZerigoDNS::Host')
         allow(jackhq).to receive(:hostname).and_return('www')
         allow(jackhq).to receive(:host_type=)
         allow(jackhq).to receive(:data=)
