@@ -1,0 +1,15 @@
+debug: true
+language: ruby
+cache: bundler
+rvm:
+  - 1.9.3-p547
+services:
+  - postgresql
+  - mongodb
+  - redis-server
+  - memcached
+before_install:
+  - gem update --system 1.8.29
+  - gem --version
+script:
+  - bundle exec rake
