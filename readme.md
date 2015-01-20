@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/zerigodns.svg)](http://badge.fury.io/rb/zerigodns)
+
 # Zerigo DNS GEM
 
 Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
