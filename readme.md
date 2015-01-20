@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/zerigodns.svg)](http://badge.fury.io/rb/zerigodns)
+
 # Zerigo DNS GEM
 
 Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
@@ -8,7 +10,7 @@ Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerig
 
     gem install zerigodns
     
-## How to use
+## How to set up:
 
 ```ruby
 require 'zerigodns'
@@ -18,16 +20,11 @@ ZerigoDNS.configure do |config|
   config.api_key = 'yourtokengoeshere'
 end
 ```
-    
-# Find or create domain
-my_zone = ZerigoDNS::Zone.find_or_create('happyplace.com')
-    
-# update or create host record
-my_host = ZerigoDNS::Host.update_or_create(my_zone, 'www', 'A', 86400, '10.10.10.10')
-```
 
-Thats it, you should now have a host and url www.happyplace.com pointing to 10.10.10.10
+## Documentation
 
+* Basic documentation can be found on the [Github Wiki](https://github.com/8x8Cloud/zerigodns/wiki)
+* A full reference can be found at [rubydoc.info](http://www.rubydoc.info/gems/zerigodns)
 
 ## How to test
 
@@ -60,9 +57,7 @@ Running `bundle exec rspec` will also run the end-to-end test suite.
 
 ## How to get Support
 
-[https://github.com/8x8Cloud/zerigo_dns](https://github.com/8x8Cloud/zerigo_dns)
-    
-Create an issue
+Create a github issue at our repository:  [https://github.com/8x8Cloud/zerigodns](https://github.com/8x8Cloud/zerigodns)
 
 ## Copyright
 
