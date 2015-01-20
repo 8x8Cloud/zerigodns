@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "zerigodns"
-  s.version = '1.0.0'
+  s.version = '1.0.1'
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.date = "2014-11-21"
   s.description = "Gem for interacting with the Zerigo DNS REST API."
   s.email = "support@zerigo.com"
-  
+  s.licenses    = %w(MIT)
   s.extra_rdoc_files = [
     "LICENSE"
   ]
@@ -29,5 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', ">= 0"
   s.add_development_dependency 'simplecov', '~> 0.9.1'
   
-  s.add_runtime_dependency 'zerigodns', ">= 0"
+#  s.add_runtime_dependency 'zerigodns', ">= 0"
 end
