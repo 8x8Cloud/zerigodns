@@ -1,9 +1,8 @@
 PATH
   remote: .
   specs:
-    zerigodns (1.0.0)
+    zerigodns (1.0.2)
       activeresource (~> 3.2.0)
-      zerigodns
 
 GEM
   remote: https://rubygems.org/
