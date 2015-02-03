@@ -10,17 +10,19 @@ module ZerigoDNS
     end
     
     def secure?
-      secure
+      !!secure
     end
     
     def secure= value
       @secure=value
-      if @secure
+
+      if secure?
         site = 'https://ns.zerigo.com/api/1.1'
       else
         site = 'http://ns.zerigo.com/api/1.1'
       end
-      @secure
+      
+      secure
     end
   end
 end
