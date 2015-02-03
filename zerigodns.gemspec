@@ -21,13 +21,15 @@ Gem::Specification.new do |s|
   s.require_paths = %w(lib)
   s.rubygems_version = "1.8.25"
   s.summary = "Zerigo DNS Gem"
-  
-  s.add_dependency 'activeresource', "~> 3.2.0"
+
+  s.add_dependency 'faraday', '~> 0.9.1'
+  s.add_dependency 'multi_xml', '~> 0.5.5'
+  s.add_dependency 'gyoku', '~> 1.2.2'
 
   s.add_development_dependency 'yard', '~> 0.8.7.6'  
   s.add_development_dependency 'rspec', '~> 2.99'
   s.add_development_dependency 'rake', ">= 0"
   s.add_development_dependency 'simplecov', '~> 0.9.1'
-  
+  s.add_development_dependency 'pry', '~> 0.10.1'
 #  s.add_runtime_dependency 'zerigodns', ">= 0"
 end

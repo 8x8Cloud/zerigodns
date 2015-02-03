@@ -3,16 +3,10 @@ module ZerigoDNS
   #@attr [String] user Your e-mail address
   #@attr [Boolean] secure Whether to use HTTPS
   class Config
+    attr_accessor :api_key, :user, :secure, :site
     
-    BASE_ATTRIBUTES = %w(api_key site secure user password)
-      BASE_ATTRIBUTES.each do |attr|
-        define_method attr do
-          ZerigoDNS::Base.send(attr)
-        end
-        
-        define_method "#{attr}=" do |val|
-          ZerigoDNS::Base.send("#{attr}=", val)
-        end
-      end
+    def secure?
+      !!secure
+    end
   end
 end
