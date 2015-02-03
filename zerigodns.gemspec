@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = "zerigodns"
-  s.version = '1.0.1'
+  s.version = '1.0.2'
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   
   s.authors = ["Tom Wilson", "Zerigo Team"]
-  s.date = "2014-11-21"
+  s.date = "2015-02-03"
   s.description = "Gem for interacting with the Zerigo DNS REST API."
   s.email = "support@zerigo.com"
   s.licenses    = %w(MIT)
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.files = %w(LICENSE Rakefile) + Dir.glob('lib/**/*.rb')
 
-  s.homepage = "http://github.com/8x8Cloud/zerigo_dns"
+  s.homepage = "http://github.com/8x8Cloud/zerigodns"
   s.require_paths = %w(lib)
   s.rubygems_version = "1.8.25"
   s.summary = "Zerigo DNS Gem"
