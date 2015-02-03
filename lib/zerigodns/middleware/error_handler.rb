@@ -1,5 +1,5 @@
 # Rasies exceptions on errors
-class ZerigoDNS::Middleware::ErrorHandler
+class ZerigoDNS::Middleware::ErrorHandler < Faraday::Middleware
   def initialize app=nil, options={}
     @app = app
     @options = options
@@ -14,8 +14,15 @@ class ZerigoDNS::Middleware::ErrorHandler
   # Rasies an exception on a bad response.
   
   
-  def call response
-    return response if ok?(response)
-    ZerigoDNS::Client::ResponseError.new(response)
+  def call request_env
+    @app.call(request_env).on_complete do |response|
+      if ok?(response)
+        response
+      else
+        raise ZerigoDNS::Client::ResponseError.new(response)
+      end
+    end
   end
 end
+
+Faraday::Response.register_middleware custom_error_handler: lambda {ZerigoDNS::Middleware::ErrorHandler}

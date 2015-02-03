@@ -1,5 +1,6 @@
-# A lightweight resource class that will take much coding out of the individual resource classes.
-# it is up to the includer to define self.from_response(response, body)
+# A lightweight resource class that will do much of the work of ActiveResource
+# without the big dependencies.
+
 module ZerigoDNS::Resource
   module ClassMethods
     # Removes the root from the response and hands it off to the class to process it

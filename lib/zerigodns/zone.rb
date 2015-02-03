@@ -1,5 +1,4 @@
 class ZerigoDNS::Zone < ZerigoDNS::Client
-
   include ZerigoDNS::Resource
 
   resource_name 'zone'
@@ -34,6 +33,6 @@ class ZerigoDNS::Zone < ZerigoDNS::Client
   # Get count of all hosts belonging to this zone
   # @return [Fixnum] Count of all hosts belonging to this zone.
   def count_hosts
-    get('zones/hosts/count').to_i
+    get('zones/hosts/count').body['count'].to_i
   end
 end

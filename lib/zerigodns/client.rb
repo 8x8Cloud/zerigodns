@@ -1,6 +1,12 @@
 module ZerigoDNS
   class Client
-
+    ResponseError = Class.new(RuntimeError) do 
+      attr_reader :response
+      
+      def initialize response=nil
+        @response=response
+      end
+    end
     ACTIONS = %w(get post put patch delete)
     
     class <<self
@@ -11,12 +17,14 @@ module ZerigoDNS
         @connection ||= Faraday.new(
           url: ZerigoDNS.config.site, 
         ) do |faraday|
-          faraday.use Faraday::Request::BasicAuthentication, ZerigoDNS.config.user, ZerigoDNS.config.api_key
-          faraday.use Faraday::Request::Multipart
-          faraday.use Faraday::Request::UrlEncoded
-          faraday.use Faraday::Adapter::NetHttp
-          faraday.use ZerigoDNS::Middleware::Xml
-          faraday.use ZerigoDNS::Middleware::ErrorHandler
+          faraday.request :basic_auth, ZerigoDNS.config.user, ZerigoDNS.config.api_key
+          faraday.request :multipart
+          faraday.request :url_encoded
+          
+          faraday.adapter Faraday.default_adapter
+          
+          faraday.response :custom_xml
+          faraday.response :custom_error_handler
         end
       end
       
