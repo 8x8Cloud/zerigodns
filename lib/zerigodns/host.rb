@@ -12,18 +12,14 @@ class ZerigoDNS::Host < ZerigoDNS::Client
     # @param [Zone, #read] zone The zone from which to find the host record.
     # @param [String, #read] hostname The hostname to find.
     # @return Host records, or an empty list if no records found.
-    def find_by_zone_and_hostname which, zone, hostname
+    def find_all_by_zone_and_hostname which, zone, hostname
       fqdn = [hostname, zone.domain].select(&:present?).join('.')
-      find(which, params: {fqdn: fqdn, zone_id: zone.id})
-    end
-    
-    def find_all_by_hostname zone, hostname
-      find_by_zone_and_hostname(:all, zone, hostname)
+      all(fqdn: fqdn, zone_id: zone.id)
     end
     
     # @return [Host] The record found, or nil.
     def find_first_by_hostname zone, hostname
-      find_by_zone_and_hostname(:all, zone, hostname).try(:first)
+      find_all_by_zone_and_hostname(zone, hostname).first
     end
     
     # Update or Create Host for a zone
@@ -37,7 +33,7 @@ class ZerigoDNS::Host < ZerigoDNS::Client
     def update_or_create(zone, hostname, type, ttl, data)
       host = find_first_by_hostname(zone, hostname)
       if host
-        host.update_record(type,ttl,data)
+        host.update(ttl: ttl, host_type: host_type, data: data)
       else
         host = create(
           :zone_id    => zone.id, 
@@ -49,14 +45,5 @@ class ZerigoDNS::Host < ZerigoDNS::Client
       end  
       host
     end
-  end
-  
-  # Convienence method to update the record.
-  # @param [String, #read] type
-  # @param [String, #read] ttl 
-  # @param [String, #read] data
-  # @return [Boolean, #read] True if saved, false otherwise.
-  def update_record type, ttl, data
-    self.class.update id, host_type: type, ttl: ttl, data: data
   end
 end

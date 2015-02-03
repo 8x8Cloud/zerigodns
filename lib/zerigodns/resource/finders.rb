@@ -1,4 +1,11 @@
 module Finders
+  module InstanceMethods
+    def update params
+      self.class.update id, params
+      @attributes.merge!(params)
+    end
+  end
+  
   module ClassMethods
     def all params={}
       process_response get("#{base_path}.xml", params)
@@ -32,6 +39,7 @@ module Finders
   end
   
   def self.included includer
+    includer.send :include, InstanceMethods
     includer.send :extend, ClassMethods
   end
 end  
