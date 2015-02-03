@@ -1,4 +1,9 @@
 class ZerigoDNS::Host < ZerigoDNS::Base
+  include ZerigoDNS::Resource
+  include ZerigoDNS::Resource::Attributes
+  
+  base_path 'hosts'
+  
   class << self
     
     # Find host record(s) by zone and hostname

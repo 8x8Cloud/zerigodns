@@ -6,6 +6,7 @@ class ZerigoDNS::Middleware::ErrorHandler
   end
   
   # @return [Boolean] true if the response was OK
+  # @raise [ZerigoDNS::Client::ResponseError] if the response was NOT OK.
   def ok? response
     (200..299).include?(response.status) || response.status == 302
   end

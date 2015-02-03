@@ -1,9 +1,14 @@
-class ZerigoDNS::Zone < ZerigoDNS::Base
+class ZerigoDNS::Zone < ZerigoDNS::Client
+
+  include ZerigoDNS::Resource
+  base_path 'zones'
+  
   class <<self
+    
     # Get count of all zones
     # @return [Fixnum] Count of all zones
     def count
-      get(:count).to_i
+      get('zones/count').body['count'].to_i
     end
     
     # Find zone by domain name
@@ -27,6 +32,6 @@ class ZerigoDNS::Zone < ZerigoDNS::Base
   # Get count of all hosts belonging to this zone
   # @return [Fixnum] Count of all hosts belonging to this zone.
   def count_hosts
-    get('hosts/count').to_i
+    get('zones/hosts/count').to_i
   end
 end
