@@ -1,0 +1,3 @@
+module ZerigoDNS::Middleware
+  
+end

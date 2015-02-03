@@ -1,8 +1,9 @@
-class ZerigoDNS::Host < ZerigoDNS::Base
+class ZerigoDNS::Host < ZerigoDNS::Client
   include ZerigoDNS::Resource
-  include ZerigoDNS::Resource::Attributes
   
   base_path 'hosts'
+  resource_name 'host'
+  
   
   class << self
     
@@ -56,9 +57,6 @@ class ZerigoDNS::Host < ZerigoDNS::Base
   # @param [String, #read] data
   # @return [Boolean, #read] True if saved, false otherwise.
   def update_record type, ttl, data
-    self.host_type  = type
-    self.data       = data
-    self.ttl        = ttl
-    save
+    self.class.update id, host_type: type, ttl: ttl, data: data
   end
 end

@@ -22,6 +22,17 @@ module ZerigoDNS::Resource
       end
     end
     
+    def resource_name *args
+      if args.length == 1
+        @resource_name = args.first
+        return
+      else 
+        return @resource_name
+      end
+      
+      raise ArgumentError, "Invalid number of arguments (1 for (0..1))"
+    end
+    
     def base_path *args
       if args.length == 1
         @base_path = args.first
