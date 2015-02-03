@@ -8,11 +8,10 @@ class ZerigoDNS::Host < ZerigoDNS::Client
   class << self
     
     # Find host record(s) by zone and hostname
-    # @param [Symbol, #read] which One of :one, :first, :last, or :all.  See http://api.rubyonrails.org/v3.2.1/classes/ActiveResource/Base.html#method-c-find
     # @param [Zone, #read] zone The zone from which to find the host record.
     # @param [String, #read] hostname The hostname to find.
     # @return Host records, or an empty list if no records found.
-    def find_all_by_zone_and_hostname which, zone, hostname
+    def find_all_by_zone_and_hostname zone, hostname
       fqdn = [hostname, zone.domain].select(&:present?).join('.')
       all(fqdn: fqdn, zone_id: zone.id)
     end

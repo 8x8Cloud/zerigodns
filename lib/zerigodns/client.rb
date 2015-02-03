@@ -1,5 +1,8 @@
 module ZerigoDNS
   class Client
+    
+    #@!attribute response [r]
+    # @!return [Faraday::Response] exposes the response.
     ResponseError = Class.new(RuntimeError) do 
       attr_reader :response
       
@@ -7,13 +10,21 @@ module ZerigoDNS
         @response=response
       end
     end
+    
     ACTIONS = %w(get post put patch delete)
     
+    ACTIONS.each do |action|
+      define_method action do |*args|
+        self.class.send(action, *args)
+      end
+    end
+    
+    
     class <<self
-      
+      # Gets or creates a new faraday connection.
       def connection
         
-        # => Note: The order of the middleware matters
+        # => Note: Middleware is executed in the order it is defined!
         @connection ||= Faraday.new(
           url: ZerigoDNS.config.site, 
         ) do |faraday|
