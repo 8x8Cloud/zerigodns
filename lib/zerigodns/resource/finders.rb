@@ -2,8 +2,9 @@
 module ZerigoDNS::Resource::Finders
   module InstanceMethods
     def update params
-      self.class.update id, params
-      @attributes.merge!(params)
+      response = self.class.update id, params
+      merge_attributes params
+      self
     end
     
     def destroy params={}
@@ -38,7 +39,7 @@ module ZerigoDNS::Resource::Finders
     
     # Deletes a resource
     def destroy id_or_name, params={}
-      delete "/api/1.1/#{self.class.base_path}/#{id_or_name}.xml", params
+      delete "/api/1.1/#{base_path}/#{id_or_name}.xml", params
     end
     
     

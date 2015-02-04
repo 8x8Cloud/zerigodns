@@ -9,6 +9,18 @@ module ZerigoDNS
       def initialize response=nil
         @response=response
       end
+      
+      def to_s
+        inspect
+      end
+      
+      def message
+        inspect
+      end
+      
+      def inspect
+        "HTTP Response Error: #{response.status}"
+      end
     end
     
     ACTIONS = %w(get post put patch delete)

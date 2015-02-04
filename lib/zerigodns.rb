@@ -3,6 +3,7 @@
 require 'faraday'
 require 'multi_xml'
 require 'zerigodns/client'
+require 'zerigodns/client/response_code'
 
 require 'zerigodns/middleware'
 require 'zerigodns/middleware/xml'
@@ -14,9 +15,9 @@ require 'zerigodns/resource/attributes'
 require 'zerigodns/config'
 require 'zerigodns/host'
 require 'zerigodns/zone'
-#require 'zerigodns/zone_template'
-#require 'zerigodns/host_template'
-#require 'zerigodns/tools'
+require 'zerigodns/zone_template'
+require 'zerigodns/host_template'
+require 'zerigodns/tools'
 
 module ZerigoDNS
   class <<self

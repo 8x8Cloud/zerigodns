@@ -1,4 +1,6 @@
 class ZerigoDNS::ZoneTemplate < ZerigoDNS::Client
+
+  include ZerigoDNS::Resource
   
   base_path 'zone_templates'
   resource_name 'zone_template'

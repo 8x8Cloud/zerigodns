@@ -1,5 +1,7 @@
 class ZerigoDNS::HostTemplate < ZerigoDNS::Client
   
+  include ZerigoDNS::Resource
+  
   base_path 'host_templates'
   resource_name 'host_template'
   

@@ -1,10 +1,12 @@
 class ZerigoDNS::Client::ResponseCode
+  attr_reader :raw_code
+  
   def initialize raw_code
     @raw_code = raw_code
   end
   
   # @return [Boolean] true if the response was OK
-  def ok? response
+  def ok?
     (200..299).include?(raw_code) || raw_code == 302
   end
   

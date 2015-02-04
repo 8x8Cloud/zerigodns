@@ -12,7 +12,7 @@ class ZerigoDNS::Host < ZerigoDNS::Client
     # @param [String, #read] hostname The hostname to find.
     # @return Host records, or an empty list if no records found.
     def find_all_by_zone_and_hostname zone, hostname
-      fqdn = [hostname, zone.domain].select(&:present?).join('.')
+      fqdn = [hostname, zone.domain].reject(&:nil?).reject(&:empty?).join('.')
       all(fqdn: fqdn, zone_id: zone.id)
     end
     

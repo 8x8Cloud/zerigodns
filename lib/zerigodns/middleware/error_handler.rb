@@ -10,8 +10,8 @@ class ZerigoDNS::Middleware::ErrorHandler < Faraday::Middleware
   
   def call request_env
     @app.call(request_env).on_complete do |response|
-      response[:code] = ZerigoDNS::Client::ResponseCode.new(status)
-      if response.code.ok?
+      response[:code] = ZerigoDNS::Client::ResponseCode.new(response.status)
+      if response[:code].ok?
         response
       else
         raise ZerigoDNS::Client::ResponseError.new(response)

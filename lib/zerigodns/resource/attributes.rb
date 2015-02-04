@@ -19,6 +19,14 @@ module ZerigoDNS::Resource::Attributes
     def initialize attributes={}
       @attributes = attributes
     end
+    
+    private
+    
+    def merge_attributes attrs
+      attrs.each do |key, val|
+        send("#{key}=", val)
+      end
+    end
   end
   
   
