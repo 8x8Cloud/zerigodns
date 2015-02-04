@@ -25,6 +25,7 @@ module ZerigoDNS
       def connection
         
         # => Note: Middleware is executed in the order it is defined!
+        # TODO:  Wrap the basic_auth middleware to allow for config changes.
         @connection ||= Faraday.new(
           url: ZerigoDNS.config.site, 
         ) do |faraday|
