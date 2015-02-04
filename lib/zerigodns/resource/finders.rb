@@ -1,5 +1,5 @@
 # Puts a basic resource abstraction over basic REST calls.
-module Finders
+module ZerigoDNS::Resource::Finders
   module InstanceMethods
     def update params
       self.class.update id, params
@@ -16,6 +16,8 @@ module Finders
     end
     
     # Find a single resource
+    # @param
+    # @return [Object] The requested resource.
     def find id_or_name, params={}
       process_response get("#{base_path}/#{id_or_name}.xml", params)
     end
