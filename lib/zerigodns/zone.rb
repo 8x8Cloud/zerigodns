@@ -25,7 +25,8 @@ class ZerigoDNS::Zone < ZerigoDNS::Client
     # @return [Zone] the zone found or created.
     def find_or_create(domain)
       find_by_domain(domain)
-    rescue ActiveResource::ResourceNotFound
+    rescue ZerigoDNS::Client::ResponseError => e
+      raise unless e.response.code.not_found?
       create(:domain=> domain, :ns_type=>'pri_sec')
     end
   end

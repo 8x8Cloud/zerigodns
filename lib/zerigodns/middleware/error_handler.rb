@@ -5,18 +5,13 @@ class ZerigoDNS::Middleware::ErrorHandler < Faraday::Middleware
     @options = options
   end
   
-  # @return [Boolean] true if the response was OK
-  # @raise [ZerigoDNS::Client::ResponseError] if the response was NOT OK.
-  def ok? response
-    (200..299).include?(response.status) || response.status == 302
-  end
-  
   # Rasies an exception on a bad response.
   
   
   def call request_env
     @app.call(request_env).on_complete do |response|
-      if ok?(response)
+      response[:code] = ZerigoDNS::Client::ResponseCode.new(status)
+      if response.code.ok?
         response
       else
         raise ZerigoDNS::Client::ResponseError.new(response)
