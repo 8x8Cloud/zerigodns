@@ -6,8 +6,10 @@ module ZerigoDNS::Resource::Attributes
     attr_accessor :attributes
     def method_missing mtd, *args
       if mtd.to_s.chars.to_a.last == '='
+        raise ArgumentError, "Invalid number of arguments (#{args.length} for 1)" if args.length != 1
         attributes[mtd.to_s.slice(0,mtd.to_s.length-1)] = args.first
-      else 
+      else
+        raise ArgumentError, "Invalid number of arguments (#{args.length} for 0)" if args.length != 0
         attributes[mtd.to_s]
       end
     end

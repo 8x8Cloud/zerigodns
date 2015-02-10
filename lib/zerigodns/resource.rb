@@ -31,7 +31,7 @@ module ZerigoDNS::Resource
         return @resource_name
       end
       
-      raise ArgumentError, "Invalid number of arguments (1 for (0..1))"
+      raise ArgumentError, "Invalid number of arguments (#{args.length} for (0..1))"
     end
     
     def base_path *args
@@ -42,7 +42,7 @@ module ZerigoDNS::Resource
         return @base_path
       end
       
-      raise ArgumentError, "Invalid number of arguments (1 for (0..1))"
+      raise ArgumentError, "Invalid number of arguments (#{args.length} for (0..1))"
     end
   end
   

@@ -27,7 +27,7 @@ describe 'Host Management' do
   
   it 'updates a host record' do
     @host = ZerigoDNS::Host.create(zone_id: @domain.id, hostname: 'www', host_type: 'A', ttl: 86400, data: '10.10.10.10')
-    @host.update_record 'A', 900, '10.10.10.1'
+    @host.update host_type: 'A', ttl: 900, data: '10.10.10.1'
     @host = ZerigoDNS::Host.find(@host.id)
     expect(@host.ttl).to eq 900
     expect(@host.data).to eq '10.10.10.1'
