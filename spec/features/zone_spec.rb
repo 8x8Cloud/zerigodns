@@ -19,8 +19,7 @@ describe 'Zone Management' do
   end
   
   it 'updates a zone' do
-    @domain.default_ttl = 400
-    @domain.save
+    @domain.update default_ttl: 400
     expect(ZerigoDNS::Zone.find(@domain.id).default_ttl).to eq 400
   end
   

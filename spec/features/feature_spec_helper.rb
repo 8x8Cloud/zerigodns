@@ -15,7 +15,6 @@ class FeatureSpec
       @user.each do |key, val|
         ZerigoDNS.config.send("#{key}=", val)
       end
-      
       @domain = ZerigoDNS::Zone.create(domain: 'zerigo-gem-testing.com', ns_type: 'pri_sec')
       true
     rescue Errno::ENOENT

@@ -28,8 +28,7 @@ describe 'Host Template Management' do
     @template = ZerigoDNS::ZoneTemplate.create(custom_ns: false, default_ttl: 900, ns_type: 'pri_sec', name: 'gem-test-3')
     @templates << @template
     @host_template = @template.create_host_template(data: '10.10.10.10', hostname: 'www', host_type: 'A')
-    @host_template.ttl = 86400
-    @host_template.save
+    @host_template.update ttl: 86400
     expect(ZerigoDNS::HostTemplate.find(@host_template.id).ttl).to eq 86400
   end
   
