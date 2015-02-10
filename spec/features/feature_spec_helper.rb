@@ -9,6 +9,7 @@ class FeatureSpec
     # Initializes the integration tests
     # @return [Boolean] true if successful, nil otherwise.
     def init
+      return true
       return true if @domain
       @user = YAML.load(File.read('spec/config/user.yml'))
       @user.each do |key, val|

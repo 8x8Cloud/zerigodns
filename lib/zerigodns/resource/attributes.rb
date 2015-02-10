@@ -17,7 +17,8 @@ module ZerigoDNS::Resource::Attributes
     end
     
     def initialize attributes={}
-      @attributes = attributes
+      @attributes = {}
+      merge_attributes attributes
     end
     
     private

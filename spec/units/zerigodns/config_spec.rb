@@ -7,18 +7,12 @@ describe ZerigoDNS::Config do
   end
   
   %w(api_key site secure user password).each do |attr|
-    describe "#{attr}" do
-      it "gets #{attr} from ZerigoDNS::Base" do
-        expect(ZerigoDNS::Base).to receive(attr)
-        @config.send(attr)
-      end
+    it "responds to #{attr}" do
+      expect(@config).to respond_to attr
     end
     
-    describe "#{attr}=" do
-      it "sets #{attr} on ZerigoDNS::Base" do
-        expect(ZerigoDNS::Base).to receive("#{attr}=")
-        @config.send("#{attr}=", "test")
-      end
+    it "responds to #{attr}=" do
+      expect(@config).to respond_to "#{attr}="
     end
   end
 end 
