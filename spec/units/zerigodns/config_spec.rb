@@ -6,7 +6,7 @@ describe ZerigoDNS::Config do
     @config = described_class.new
   end
   
-  %w(api_key site secure user password).each do |attr|
+  %w(api_key site secure user).each do |attr|
     it "responds to #{attr}" do
       expect(@config).to respond_to attr
     end

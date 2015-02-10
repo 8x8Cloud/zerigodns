@@ -19,7 +19,7 @@ module ZerigoDNS
       end
       
       def inspect
-        "HTTP Response Error: #{response.status}"
+        "HTTP Response Error: #{response && response.status}"
       end
     end
     

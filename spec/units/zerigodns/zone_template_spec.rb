@@ -25,7 +25,7 @@ describe ZerigoDNS::ZoneTemplate do
   
   describe '.count' do
     it 'sends a GET request to the correct endpoint' do
-      expect(described_class).to receive(:get).with('/zone_templates/count.xml').and_return double(body: {'count' => '1'})
+      expect(described_class).to receive(:get).with('zone_templates/count.xml').and_return double(body: {'count' => '1'})
       described_class.count
     end
   end
@@ -33,7 +33,7 @@ describe ZerigoDNS::ZoneTemplate do
   describe '#count_host_templates' do
     it 'sends a GET request to the correct endpoint' do
       @template = ZerigoDNS::ZoneTemplate.new(id: 1, default_ttl: 900, custom_ns: false, ns_type: 'pri_sec')
-      expect(@template).to receive(:get).with('/zone_templates/1/host_templates/count.xml').and_return double(body: {'count' => '1'})
+      expect(@template).to receive(:get).with('zone_templates/1/host_templates/count.xml').and_return double(body: {'count' => '1'})
       @template.count_host_templates
     end
   end

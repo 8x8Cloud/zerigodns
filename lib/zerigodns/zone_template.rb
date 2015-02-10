@@ -8,13 +8,13 @@ class ZerigoDNS::ZoneTemplate < ZerigoDNS::Client
   # Get count of zone templates
   # @return [Fixnum] the count of zone templates
   def self.count
-    get('/zone_templates/count.xml').body['count'].to_i
+    get('zone_templates/count.xml').body['count'].to_i
   end
   
   # Get count of host templates
   # @return [Fixnum] the count of host templates for this zone template
   def count_host_templates
-    get("/zone_templates/#{id}/host_templates/count.xml").body['count'].to_i
+    get("zone_templates/#{id}/host_templates/count.xml").body['count'].to_i
   end
   
   # Create a zone using the zone template
