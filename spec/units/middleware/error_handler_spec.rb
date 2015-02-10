@@ -33,6 +33,5 @@ describe ZerigoDNS::Middleware::ErrorHandler do
         expect{@client.get('/test')}.to raise_error ZerigoDNS::Client::ResponseError
       end
     end
-    
   end
 end

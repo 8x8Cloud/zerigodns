@@ -1,4 +1,6 @@
 require 'spec_helper'
+require_relative '../features/feature_spec_helper'
+
 describe 'Host Template Management' do
   before :all do
     skip unless FeatureSpec.should_run?

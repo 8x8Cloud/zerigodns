@@ -1,4 +1,5 @@
 require 'spec_helper'
+require_relative '../features/feature_spec_helper'
 
 describe 'Tools' do
   before :all do
