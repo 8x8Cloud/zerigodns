@@ -36,19 +36,16 @@ describe ZerigoDNS::Resource::Finders do
   
   describe '.update' do
     before :each do
-      @response = double(body: {'class' => {'attr' => 1}})
       allow(@class).to receive(:put).with('classes/1.xml', 'class' => {'attr' => 1}).and_return @response
     end
     
     it 'updates attributes' do
-      expect(@class).to receive(:process_response).with(@response)
       @class.update 1, 'attr' => 1
     end
     
     it 'updates attributes with an object' do
       instance = @class.new
       allow(instance).to receive(:to_hash).and_return 'attr' => 1
-      expect(@class).to receive(:process_response).with(@response)
       @class.update 1, instance
     end
   end
@@ -81,7 +78,6 @@ describe ZerigoDNS::Resource::Finders do
   describe '#update' do
     it 'updates the attributes' do
       expect(@class).to receive(:put).with('classes/1.xml', 'class' => {'attr' => 1})
-      expect(@class).to receive(:process_response).with(@response)
       instance = @class.new id: 1
       instance.update 'attr' => 1
       expect(instance.attr).to eq 1

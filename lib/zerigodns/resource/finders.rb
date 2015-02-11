@@ -39,10 +39,9 @@ module ZerigoDNS::Resource::Finders
     # Updates a single resource
     # @param [Object] id_or_name Id or name of the resource
     # @raise [ZerigoDNS::Client::ResponseError] if update does not succeed.
-    # @return [Boolean] true if successful
+    # @return [Faraday::Response] The response returned by the server.
     def update id_or_name, params={}
       put "#{base_path}/#{id_or_name}.xml", convert(params)
-      true
     end
     
     # Creates a resource
