@@ -4,6 +4,8 @@
 module ZerigoDNS::Resource
   module ClassMethods
     # Removes the root from the response and hands it off to the class to process it
+    # Processes an array response by delegating to the includer's self.from_response
+    # @param [Faraday::Response] response The response
     # @return [Object] The result of the parsed response.
     def process_response response
       without_root = response.body.values.first
@@ -16,6 +18,8 @@ module ZerigoDNS::Resource
     
     
     # Processes an array response by delegating to the includer's self.from_response
+    # @param [Faraday::Response] response The response
+    # @param [Array] The response body
     # @return [Array] The resultant array.
     def process_array response, body
       body.map do |element|
@@ -23,6 +27,10 @@ module ZerigoDNS::Resource
       end
     end
     
+    
+    # Sets & gets the "resource name", which is required for the create & update actions.
+    # @param [String] name resource name
+    # @return [String] the base path
     def resource_name *args
       if args.length == 1
         @resource_name = args.first
@@ -34,6 +42,9 @@ module ZerigoDNS::Resource
       raise ArgumentError, "Invalid number of arguments (#{args.length} for (0..1))"
     end
     
+    # Sets & gets the "base path", where the resource is located.
+    # @param [String] path base path
+    # @return [String] the base path
     def base_path *args
       if args.length == 1
         @base_path = args.first

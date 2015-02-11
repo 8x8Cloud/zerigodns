@@ -4,6 +4,9 @@
 module ZerigoDNS::Resource::Attributes
   module InstanceMethods
     attr_accessor :attributes
+    
+    
+    # Allows method-style access to the attributes.
     def method_missing mtd, *args
       if mtd.to_s.chars.to_a.last == '='
         raise ArgumentError, "Invalid number of arguments (#{args.length} for 1)" if args.length != 1
@@ -14,10 +17,14 @@ module ZerigoDNS::Resource::Attributes
       end
     end
     
+    # Converts the resource to a hash
+    # @return [Hash] The attributes
     def to_hash
       attributes
     end
     
+    # Initialize a new resource
+    # @param [Hash] attributes Initial attributes.
     def initialize attributes={}
       @attributes = {}
       merge_attributes attributes
@@ -25,6 +32,9 @@ module ZerigoDNS::Resource::Attributes
     
     private
     
+    # Merge current attributes with specified ones.
+    # Will handle symbols as well as strings as keys
+    # @param [Hash] attrs Attributes to merge
     def merge_attributes attrs
       attrs.each do |key, val|
         send("#{key}=", val)
@@ -34,6 +44,9 @@ module ZerigoDNS::Resource::Attributes
   
   
   module ClassMethods
+    # Constructs a new resource from a response
+    # @param [Faraday::Response] response The response
+    # @param [Hash] body The response body without root
     def from_response response, body
       new body
     end

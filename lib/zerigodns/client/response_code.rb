@@ -1,3 +1,5 @@
+# Represents a response code and allows more expressive querying of response status.
+# e.g. +response.env[:code].ok?+ as opposed to +(200..299).include?(response.status)+
 class ZerigoDNS::Client::ResponseCode
   attr_reader :raw_code
   

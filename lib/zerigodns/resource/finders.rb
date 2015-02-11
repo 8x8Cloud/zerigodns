@@ -1,12 +1,20 @@
 # Puts a basic resource abstraction over basic REST calls.
 module ZerigoDNS::Resource::Finders
   module InstanceMethods
+    
+    # Update this instance's resource with attributes supplied into +params+
+    # @param [Hash] params The attributes to set
+    # @return [Object] The instance on which +update+ was called
     def update params
       self.class.update id, params
       merge_attributes params
       self
     end
     
+    # Destroy this instance's resource
+    # @param [Hash] params The attributes to set
+    # @raise [ZerigoDNS::Client::ResponseError] if delete does not succeed.
+    # @return [Faraday::Response] The response returned from the server.
     def destroy params={}
       self.class.destroy id, params
     end
@@ -21,23 +29,33 @@ module ZerigoDNS::Resource::Finders
     end
     
     # Find a single resource
-    # @param
+    # @param [Object] id_or_name The id or name of the resource to find
+    # @raise [ZerigoDNS::Client::ResponseError] if the find does not succeed.
     # @return [Object] The requested resource.
     def find id_or_name, params={}
       process_response get("#{base_path}/#{id_or_name}.xml", params)
     end
     
     # Updates a single resource
+    # @param [Object] id_or_name Id or name of the resource
+    # @raise [ZerigoDNS::Client::ResponseError] if update does not succeed.
+    # @return [Boolean] true if successful
     def update id_or_name, params={}
-      process_response(put "#{base_path}/#{id_or_name}.xml", convert(params))
+      put "#{base_path}/#{id_or_name}.xml", convert(params)
+      true
     end
     
     # Creates a resource
+    # @param [Object] params Parameters to pass to create action
+    # @raise [ZerigoDNS::Client::ResponseError] if create does not succeed.
+    # @return [Object] the created resource
     def create params={}
       process_response(post "#{base_path}.xml", convert(params))
     end
     
     # Deletes a resource
+    # @param [Object] params Parameters to pass to delete action
+    # @raise [ZerigoDNS::Client::ResponseError] if destroy does not succeed.
     def destroy id_or_name, params={}
       delete "#{base_path}/#{id_or_name}.xml", params
     end

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'ostruct'
 
 describe ZerigoDNS::Resource::Finders do
   before :each do

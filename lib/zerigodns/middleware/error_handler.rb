@@ -1,13 +1,12 @@
 # Rasies exceptions on errors
 class ZerigoDNS::Middleware::ErrorHandler < Faraday::Middleware
+  # Constructs new middleware instance
   def initialize app=nil, options={}
     @app = app
     @options = options
   end
   
-  # Rasies an exception on a bad response.
-  
-  
+  # Rasies an exception on a response code that is not HTTP OK
   def call request_env
     @app.call(request_env).on_complete do |response|
       response[:code] = ZerigoDNS::Client::ResponseCode.new(response.status)

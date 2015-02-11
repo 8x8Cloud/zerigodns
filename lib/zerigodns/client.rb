@@ -5,19 +5,23 @@ module ZerigoDNS
     # @!return [Faraday::Response] exposes the response.
     ResponseError = Class.new(RuntimeError) do 
       attr_reader :response
-      
+      # Initialize a new ResponseError with a response.
       def initialize response=nil
         @response=response
       end
       
+      # Convert to a string
+      # @return [String] The error's message.
       def to_s
         inspect
       end
       
+      # @return [String] The error's message
       def message
         inspect
       end
       
+      # @return [String] The error's message
       def inspect
         "HTTP Response Error: #{response && response.status}"
       end
@@ -36,7 +40,7 @@ module ZerigoDNS
       # Gets or creates a new faraday connection.
       def connection
         
-        # => Note: Middleware is executed in the order it is defined!
+        # => Note:  Order matters here!
         # TODO:  Wrap the basic_auth middleware to allow for config changes.
         @connection ||= Faraday.new(
           url: ZerigoDNS.config.site, 

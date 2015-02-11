@@ -9,10 +9,15 @@ module ZerigoDNS
       @site = 'https://ns.zerigo.com/api/1.1'
     end
     
+    # @return [Boolean] +true+ if +https+ is used
     def secure?
       !!secure
     end
     
+    
+    # Set +https+ or +http+
+    # @param [Boolean] value +true+ to use +https+, false for +http+
+    # Note: Will change the value of +site+!
     def secure= value
       @secure=value
 
