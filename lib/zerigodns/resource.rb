@@ -26,35 +26,6 @@ module ZerigoDNS::Resource
         from_response response, element
       end
     end
-    
-    
-    # Sets & gets the "resource name", which is required for the create & update actions.
-    # @param [String] name resource name
-    # @return [String] the base path
-    def resource_name *args
-      if args.length == 1
-        @resource_name = args.first
-        return
-      else 
-        return @resource_name
-      end
-      
-      raise ArgumentError, "Invalid number of arguments (#{args.length} for (0..1))"
-    end
-    
-    # Sets & gets the "base path", where the resource is located.
-    # @param [String] path base path
-    # @return [String] the base path
-    def base_path *args
-      if args.length == 1
-        @base_path = args.first
-        return
-      else 
-        return @base_path
-      end
-      
-      raise ArgumentError, "Invalid number of arguments (#{args.length} for (0..1))"
-    end
   end
   
   
@@ -62,5 +33,6 @@ module ZerigoDNS::Resource
     includer.send :include, Attributes
     includer.send :include, Finders
     includer.send :extend, ClassMethods
+    includer.send :include, Naming
   end
 end
