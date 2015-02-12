@@ -1,9 +1,6 @@
 class ZerigoDNS::Host < ZerigoDNS::Client
   include ZerigoDNS::Resource
   
-  base_path 'hosts'
-  resource_name 'host'
-  
   
   class << self
     

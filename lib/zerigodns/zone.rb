@@ -1,8 +1,5 @@
 class ZerigoDNS::Zone < ZerigoDNS::Client
   include ZerigoDNS::Resource
-
-  resource_name 'zone'
-  base_path 'zones'
   
   class <<self
     

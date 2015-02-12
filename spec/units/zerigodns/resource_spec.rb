@@ -6,20 +6,6 @@ describe ZerigoDNS::Resource do
     @instance.class.send :include, described_class
   end
   
-  describe '.base_path' do
-    it 'sets & gets the base path' do
-      @instance.class.send :base_path, 'classes'
-      expect(@instance.class.base_path).to eq 'classes'
-    end
-  end
-  
-  describe 'resource_name' do
-    it 'sets & gets the resource name' do
-      @instance.class.send :base_path, 'class'
-      expect(@instance.class.base_path).to eq 'class'
-    end
-  end
-  
   describe '.process_array' do
     it 'converts an array of hashes into the resource' do
       allow(@instance.class).to receive(:from_response).and_return 1

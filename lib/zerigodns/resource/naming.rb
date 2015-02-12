@@ -15,7 +15,7 @@ module ZerigoDNS::Resource::Naming
     # Default base path.
     # @return [String] Generated base path from class name (default_resource_name + "s")
     def default_base_path
-      "#{underscore_path}s"
+      "#{resource_name}s"
     end
     
     

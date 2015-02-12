@@ -2,8 +2,6 @@ class ZerigoDNS::HostTemplate < ZerigoDNS::Client
   
   include ZerigoDNS::Resource
   
-  base_path 'host_templates'
-  resource_name 'host_template'
   
   # Fetches the zone template to which the host template belongs.
   # @return [ZoneTemplate] The zone template to which the host template belongs.

@@ -2,9 +2,6 @@ class ZerigoDNS::ZoneTemplate < ZerigoDNS::Client
 
   include ZerigoDNS::Resource
   
-  base_path 'zone_templates'
-  resource_name 'zone_template'
-  
   # Get count of zone templates
   # @return [Fixnum] the count of zone templates
   def self.count
