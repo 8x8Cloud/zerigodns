@@ -8,6 +8,32 @@ describe ZerigoDNS::Host do
     allow(@domain).to receive(:domain).and_return('domain.com')
   end
   
+  describe '#find_by_zone_and_hostname' do
+    
+    before :each do
+      allow(ZerigoDNS::Host).to receive(:find_all_by_hostname).and_return [1,2,3]
+    end
+    
+    context 'which is :all' do
+      it 'returns all records' do
+        expect(ZerigoDNS::Host.find_by_zone_and_hostname :all, @domain, 'domain.com').to eq [1,2,3]
+      end
+    end
+    
+    context 'which is :first' do
+      it 'returns the first record' do
+        expect(ZerigoDNS::Host.find_by_zone_and_hostname :first, @domain, 'domain.com').to eq 1
+      end
+    end
+    
+    context 'which is :last' do
+      it 'returns the last record' do
+        expect(ZerigoDNS::Host.find_by_zone_and_hostname :last, @domain, 'domain.com').to eq 3
+      end
+    end
+  end
+  
+  
   describe '#find_all_by_hostname' do
     it 'sends the correct arguments to find' do
       expect(described_class).to receive(:all).with(fqdn: "host.domain.com", zone_id: 1).and_return []

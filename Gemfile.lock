@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zerigodns (1.0.2)
+    zerigodns (1.1.0)
       faraday (~> 0.9.1)
       multi_xml (~> 0.5.5)
 

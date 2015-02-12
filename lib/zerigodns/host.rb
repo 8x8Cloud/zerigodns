@@ -4,6 +4,24 @@ class ZerigoDNS::Host < ZerigoDNS::Client
   
   class << self
     
+    
+    # Find host record(s) by zone and hostname
+    # @param [Symbol, #read] which One of :one, :first, :last, or :all.
+    # @param [Zone, #read] zone The zone from which to find the host record.
+    
+    # @param [String, #read] hostname The hostname to find.
+    # @return Host records, or an empty list if no records found.
+    def find_by_zone_and_hostname which, zone, hostname
+      if which == :all
+        find_all_by_hostname(zone, hostname)
+      else
+        find_all_by_hostname(zone, hostname).send(which)
+      end
+    end
+    
+    
+    
+    
     # Find host record(s) by zone and hostname
     # @param [Zone, #read] zone The zone from which to find the host record.
     # @param [String, #read] hostname The hostname to find.
