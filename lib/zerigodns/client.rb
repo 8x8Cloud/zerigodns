@@ -2,9 +2,10 @@ module ZerigoDNS
   class Client
     
     #@!attribute response [r]
-    # @!return [Faraday::Response] exposes the response.
+    # @return [Faraday::Response] exposes the response.
     ResponseError = Class.new(RuntimeError) do 
       attr_reader :response
+      
       # Initialize a new ResponseError with a response.
       def initialize response=nil
         @response=response
@@ -27,6 +28,7 @@ module ZerigoDNS
       end
     end
     
+    # Standard REST Actions
     ACTIONS = %w(get post put patch delete)
     
     ACTIONS.each do |action|

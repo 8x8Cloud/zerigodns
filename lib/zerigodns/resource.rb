@@ -19,7 +19,7 @@ module ZerigoDNS::Resource
     
     # Processes an array response by delegating to the includer's self.from_response
     # @param [Faraday::Response] response The response
-    # @param [Array] The response body
+    # @param [Array] body The response body, with root removed
     # @return [Array] The resultant array.
     def process_array response, body
       body.map do |element|
