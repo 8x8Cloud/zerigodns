@@ -31,7 +31,7 @@ module ZerigoDNS::Resource
   
   def self.included includer
     includer.send :include, Attributes
-    includer.send :include, Finders
+    includer.send :include, Rest
     includer.send :include, Naming
     includer.send :extend, ClassMethods
   end

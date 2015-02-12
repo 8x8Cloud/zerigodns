@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ZerigoDNS::Resource::Finders do
+describe ZerigoDNS::Resource::Rest do
   before :each do
     @class = Class.new 
     @class.send :include, ZerigoDNS::Resource

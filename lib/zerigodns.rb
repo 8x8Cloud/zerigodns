@@ -10,7 +10,7 @@ require 'zerigodns/middleware/xml'
 require 'zerigodns/middleware/error_handler'
 
 require 'zerigodns/resource'
-require 'zerigodns/resource/finders'
+require 'zerigodns/resource/rest'
 require 'zerigodns/resource/naming'
 require 'zerigodns/resource/attributes'
 require 'zerigodns/config'

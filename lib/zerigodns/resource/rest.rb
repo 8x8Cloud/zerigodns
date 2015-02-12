@@ -1,5 +1,5 @@
 # Puts a basic resource abstraction over basic REST calls.
-module ZerigoDNS::Resource::Finders
+module ZerigoDNS::Resource::Rest
   module InstanceMethods
     
     # Update this instance's resource with attributes supplied into +params+
@@ -67,7 +67,6 @@ module ZerigoDNS::Resource::Finders
     # @raise [ArgumentError] if the object given does not respond to to_hash
     def convert object
       return {resource_name => object} if object.is_a? Hash
-      raise ArgumentError, "Expected #{object} to respond to to_hash" unless object.respond_to?(:to_hash)
       {resource_name =>  object.to_hash}
     end
     
