@@ -46,7 +46,7 @@ module ZerigoDNS
         @connection ||= Faraday.new(
           url: ZerigoDNS.config.site, 
         ) do |faraday|
-          faraday.request :basic_auth, ZerigoDNS.config.user, ZerigoDNS.config.api_key
+          faraday.request :zerigo_auth
           faraday.request :multipart
           faraday.request :url_encoded
           
