@@ -1,9 +1,12 @@
-class ZerigoDNS::Zone < ZerigoDNS::Base
+class ZerigoDNS::Zone < ZerigoDNS::Client
+  include ZerigoDNS::Resource
+  
   class <<self
+    
     # Get count of all zones
     # @return [Fixnum] Count of all zones
     def count
-      get(:count).to_i
+      get('zones/count.xml').body['count'].to_i
     end
     
     # Find zone by domain name
@@ -19,7 +22,8 @@ class ZerigoDNS::Zone < ZerigoDNS::Base
     # @return [Zone] the zone found or created.
     def find_or_create(domain)
       find_by_domain(domain)
-    rescue ActiveResource::ResourceNotFound
+    rescue ZerigoDNS::Client::ResponseError => e
+      raise unless e.response.code.not_found?
       create(:domain=> domain, :ns_type=>'pri_sec')
     end
   end
@@ -27,6 +31,6 @@ class ZerigoDNS::Zone < ZerigoDNS::Base
   # Get count of all hosts belonging to this zone
   # @return [Fixnum] Count of all hosts belonging to this zone.
   def count_hosts
-    get('hosts/count').to_i
+    get("zones/#{id}/hosts/count.xml").body['count'].to_i
   end
 end

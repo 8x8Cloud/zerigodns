@@ -2,7 +2,7 @@
 
 # Zerigo DNS GEM
 
-Simple ActiveResource wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
+Simple wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
 
 
 
