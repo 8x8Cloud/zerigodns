@@ -1,4 +1,5 @@
 require 'spec_helper'
+require_relative '../features/feature_spec_helper'
 
 describe 'Zone Template Management' do
   before :all do
@@ -31,8 +32,7 @@ describe 'Zone Template Management' do
   it 'updates zone templates' do
     @template = ZerigoDNS::ZoneTemplate.create(custom_ns: false, default_ttl: 900, ns_type: 'pri_sec', name: 'gem-test-3')
     @templates << @template
-    @template.default_ttl = 1800
-    @template.save
+    @template.update default_ttl: 1800
     changed_template=ZerigoDNS::ZoneTemplate.find(@template.id)
     expect(changed_template.default_ttl).to eq 1800
   end

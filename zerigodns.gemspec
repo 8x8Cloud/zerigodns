@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = "zerigodns"
-  s.version = '1.0.2'
+  s.version = '1.1.0'
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   
   s.authors = ["Tom Wilson", "Zerigo Team"]
-  s.date = "2015-02-03"
+  s.date = "2015-02-17"
   s.description = "Gem for interacting with the Zerigo DNS REST API."
   s.email = "support@zerigo.com"
   s.licenses    = %w(MIT)
@@ -21,13 +21,13 @@ Gem::Specification.new do |s|
   s.require_paths = %w(lib)
   s.rubygems_version = "1.8.25"
   s.summary = "Zerigo DNS Gem"
-  
-  s.add_dependency 'activeresource', "~> 3.2.0"
+
+  s.add_dependency 'faraday', '~> 0.9.1'
+  s.add_dependency 'multi_xml', '~> 0.5.5'
 
   s.add_development_dependency 'yard', '~> 0.8.7.6'  
   s.add_development_dependency 'rspec', '~> 2.99'
   s.add_development_dependency 'rake', ">= 0"
   s.add_development_dependency 'simplecov', '~> 0.9.1'
-  
-#  s.add_runtime_dependency 'zerigodns', ">= 0"
+  s.add_development_dependency 'pry', '~> 0.10.1'
 end
