@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   
   s.authors = ["Tom Wilson", "Zerigo Team"]
-  s.date = "2015-02-03"
+  s.date = "2015-02-17"
   s.description = "Gem for interacting with the Zerigo DNS REST API."
   s.email = "support@zerigo.com"
   s.licenses    = %w(MIT)
