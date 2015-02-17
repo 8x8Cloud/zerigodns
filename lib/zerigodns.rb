@@ -8,6 +8,7 @@ require 'zerigodns/client/response_code'
 require 'zerigodns/middleware'
 require 'zerigodns/middleware/xml'
 require 'zerigodns/middleware/error_handler'
+require 'zerigodns/middleware/zerigo_auth'
 
 require 'zerigodns/resource'
 require 'zerigodns/resource/rest'

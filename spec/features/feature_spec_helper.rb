@@ -9,12 +9,8 @@ class FeatureSpec
     # Initializes the integration tests
     # @return [Boolean] true if successful, nil otherwise.
     def init
-      #      return true
       return true if @domain
-      @user = YAML.load(File.read('spec/config/user.yml'))
-      @user.each do |key, val|
-        ZerigoDNS.config.send("#{key}=", val)
-      end
+      load_config!
       @domain = ZerigoDNS::Zone.create(domain: 'zerigo-gem-testing.com', ns_type: 'pri_sec')
       true
     rescue Errno::ENOENT
@@ -27,9 +23,22 @@ class FeatureSpec
       !!domain
     end
     
+    # Load the config file.
+    # @note may raise exceptions if the file cannot be found.
+    def load_config!
+      @user = YAML.load(File.read('spec/config/user.yml'))
+      @user.each do |key, val|
+        ZerigoDNS.config.send("#{key}=", val)
+      end
+    end
+    
     # Clean up resources from the feature test.
     def cleanup
+      # => Some tests change the config, this needs to be reloaded.
+      load_config!
       @domain.destroy
+    rescue Errno::ENOENT
+      nil
     end
   end
 end
