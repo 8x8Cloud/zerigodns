@@ -2,6 +2,8 @@
 
 # Zerigo DNS GEM
 
+[![Join the chat at https://gitter.im/8x8Cloud/zerigodns](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8x8Cloud/zerigodns?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Simple wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
 
 
