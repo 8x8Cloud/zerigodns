@@ -12,4 +12,4 @@ before_install:
 notifications:
   hipchat:
     rooms:
-      secure: ZWjE9E19VYPElS3BDLyr2ZNbAsEb+w0KvKzi9sZwW5Ye1LT0vwVf3oC0QO0OCPJe+tPO7XgGH2IzFoIqoeqcQET6S3vkx7kEYbbXgPwXl8AeeAmAaLKEf+1DYxRyKkaM1QPOQ+cztkjBK71xxVWPD0H5s/HOPaBpDQYexolDZpo=
+      secure: butF3uMjyju68IgglSTHJXqO+hYFK2qea2QV4+GMm8VoAE59pktK6DSJjs69lbO/T+dBPSMzz+cdsqV8yj24YBwEvV5iU0XsPVdoqbD/Tc5qk1F4ui0OnQ8cffuMRbcRJaJoh9pa4CSkrKJE3glT1elVFDZkB0iK1jHev1bK0uo=
