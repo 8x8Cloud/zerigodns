@@ -9,3 +9,7 @@ script:
 before_install:
 - openssl aes-256-cbc -K $encrypted_7fc7f2c03573_key -iv $encrypted_7fc7f2c03573_iv
   -in spec/config/user.yml.enc -out spec/config/user.yml -d
+notifications:
+  hipchat:
+    rooms:
+      secure: ZWjE9E19VYPElS3BDLyr2ZNbAsEb+w0KvKzi9sZwW5Ye1LT0vwVf3oC0QO0OCPJe+tPO7XgGH2IzFoIqoeqcQET6S3vkx7kEYbbXgPwXl8AeeAmAaLKEf+1DYxRyKkaM1QPOQ+cztkjBK71xxVWPD0H5s/HOPaBpDQYexolDZpo=
