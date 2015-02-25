@@ -10,3 +10,6 @@ rvm:
   - ruby-head
   - jruby-head
   - ree
+script:
+  - bundle exec rspec
+  - bundle exec rake
