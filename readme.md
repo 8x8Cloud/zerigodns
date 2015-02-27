@@ -2,12 +2,10 @@
 
 # Zerigo DNS GEM
 
+[![Gem Version](https://badge.fury.io/rb/zerigodns.svg)](http://badge.fury.io/rb/zerigodns) [![Travis Status](https://travis-ci.org/8x8Cloud/zerigodns.svg)](https://travis-ci.org/8x8Cloud/zerigodns) [![Code Climate](https://codeclimate.com/github/8x8Cloud/zerigodns/badges/gpa.svg)](https://codeclimate.com/github/8x8Cloud/zerigodns) [![Test Coverage](https://codeclimate.com/github/8x8Cloud/zerigodns/badges/coverage.svg)](https://codeclimate.com/github/8x8Cloud/zerigodns)
+
 [![Join the chat at https://gitter.im/8x8Cloud/zerigodns](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8x8Cloud/zerigodns?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Travis Status](https://travis-ci.org/8x8Cloud/zerigodns.svg)](https://travis-ci.org/8x8Cloud/zerigodns)
-
-
-[![Gem Version](https://badge.fury.io/rb/zerigodns.svg)](http://badge.fury.io/rb/zerigodns)
 
 Simple wrapper around the [Zerigo DNS REST API](https://www.zerigo.com/docs/apis/dns/1.1)
 
