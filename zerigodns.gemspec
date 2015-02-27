@@ -30,4 +30,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', ">= 0"
   s.add_development_dependency 'simplecov', '~> 0.9.1'
   s.add_development_dependency 'pry', '~> 0.10.1'
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.7'
 end

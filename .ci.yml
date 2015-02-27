@@ -12,4 +12,4 @@ before_install:
   - gem update --system 1.8.29
   - gem --version
 script:
-  - bundle exec rake
+  - CODECLIMATE_REPO_TOKEN=5389167df5c64410b9561acec862f703b86eb45d1454d356878ce6dd8bcbb8a3 bundle exec rake
