@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'zerigodns_utils'
+require 'optparse'
+require 'resolv'
+
+include ZerigoDNSUtils::VanityUpdate
+
+ZerigoDNS.configure do |config|
+  config.secure = true
+end
+
+
+app = App.new
+app.run
