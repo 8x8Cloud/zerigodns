@@ -1,0 +1,25 @@
+PATH
+  remote: .
+  specs:
+    zerigodns_utils (0.0.1)
+      zerigodns (~> 1.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    rake (10.4.2)
+    zerigodns (1.1.0)
+      faraday (~> 0.9.1)
+      multi_xml (~> 0.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.6)
+  rake
+  zerigodns_utils!
