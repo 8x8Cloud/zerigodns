@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.1'
   spec.authors       = ["Raymond F. Wells"]
   spec.email         = ["rfw2nd@gmail.com"]
-  spec.summary       = %q{Write a short summary. Required.}
-  spec.description   = %q{Write a longer description. Optional.}
+  spec.summary       = %q{ZerigoDNS commandline utilites.}
+  spec.description   = %q{Small commandline utilities for managing zerigodns.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
